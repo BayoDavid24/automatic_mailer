@@ -26,8 +26,8 @@ jobs:
 
       - name: Run script
         env:
-          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
-          TO_EMAIL:   ${{ secrets.TO_EMAIL }}
-          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          FROM = os.environ.get("FROM_EMAIL")
+          TO = os.environ.get("TO_EMAIL")
+          PASS = os.environ.get("EMAIL_PASS")
         run: |
           python automatic_email.py
