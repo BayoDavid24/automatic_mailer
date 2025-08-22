@@ -38,9 +38,9 @@ print('Composing Email...')
 # ✅ Read from environment variables instead of hardcoding
 SERVER = 'smtp.gmail.com'
 PORT = 587
-FROM = os.getenv('FROM_EMAIL')
-TO = os.getenv('TO_EMAIL')
-PASS = os.getenv('EMAIL_PASS')
+FROM = os.environ.get('FROM_EMAIL')
+TO = os.environ.get('TO_EMAIL')
+PASS = os.environ.get('EMAIL_PASS')
 
 msg = MIMEMultipart()
 msg['Subject'] = f'Top News Stories NL [Automated Email] {now.day}-{now.month}-{now.year}'
