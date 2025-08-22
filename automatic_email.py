@@ -38,9 +38,12 @@ print('Composing Email...')
 # ✅ Read from environment variables instead of hardcoding
 SERVER = 'smtp.gmail.com'
 PORT = 587
-FROM = os.getenv("FROM_EMAIL")
-TO = os.getenv("TO_EMAIL")
-PASS = os.getenv("EMAIL_PASS")
+FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+TO_EMAIL:   ${{ secrets.TO_EMAIL }}
+EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+
+
+Once these secrets are set, re-run the workflow and it should proceed without this error.
 
 if not FROM or not TO or not PASS:
     raise ValueError("⚠️ Missing email credentials. Please set FROM_EMAIL, TO_EMAIL, and EMAIL_PASS.")
