@@ -38,9 +38,9 @@ print('Composing Email...')
 # ✅ Read from environment variables instead of hardcoding
 SERVER = 'smtp.gmail.com'
 PORT = 587
-FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
-TO_EMAIL:   ${{ secrets.TO_EMAIL }}
-EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+FROM = os.environ["FROM_EMAIL"]
+TO = os.environ["TO_EMAIL"]
+PASS = os.environ["EMAIL_PASS"]
 
 
 Once these secrets are set, re-run the workflow and it should proceed without this error.
