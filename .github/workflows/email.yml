@@ -30,4 +30,4 @@ jobs:
           TO_EMAIL:   ${{ secrets.TO_EMAIL }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
         run: |
-          python news_mailer.py
+          python automatic_email.py
