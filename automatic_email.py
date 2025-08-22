@@ -42,12 +42,6 @@ FROM = os.getenv('FROM_EMAIL')
 TO = os.getenv('TO_EMAIL')
 PASS = os.getenv('EMAIL_PASS')
 
-
-Once these secrets are set, re-run the workflow and it should proceed without this error.
-
-if not FROM or not TO or not PASS:
-    raise ValueError("⚠️ Missing email credentials. Please set FROM_EMAIL, TO_EMAIL, and EMAIL_PASS.")
-
 msg = MIMEMultipart()
 msg['Subject'] = f'Top News Stories NL [Automated Email] {now.day}-{now.month}-{now.year}'
 msg['From'] = FROM
